@@ -1,0 +1,55 @@
+#detailsPage {
+    background-color: var(--background-color);
+    padding: 5% auto;
+    height: 100vh;
+
+    a {
+        color: var(--text-color);
+        padding-top: 45px;
+        height: max-content;
+        font-size: 40px;
+        font-weight: 900;
+    }
+
+    .detailsCont {
+        width: 80%;
+        margin: 0 auto;
+        color: var(--text-color);
+
+        .detailContent {
+            margin: 8% 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+
+            .leftSide {
+              width: 30%;
+
+                img {
+                    width: 500px;
+                    object-fit: cover;
+                }
+            }
+
+            .rightSide {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                .countryDetails {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+
+                    div {
+                        padding: 15px;
+
+                        span {
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

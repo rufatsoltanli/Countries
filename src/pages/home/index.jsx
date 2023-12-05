@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import "./style.scss"
-
-
+import { Link } from 'react-router-dom'
 
 function HomePage() {
     const [dataApi, setDataApi] = useState([])
     const [input, setInput] = useState("")
     const [region, setRegion] = useState("")
+
+
 
     useEffect(() => {
         fetch("https://restcountries.com/v3.1/all")
@@ -25,11 +26,13 @@ function HomePage() {
                             Filter by Region <i class="fa-solid fa-chevron-down"></i>
                             <div className="filterDropDown">
                                 <ul>
-                                    <li onClick={ }>Africa</li>
-                                    <li onClick={ }>America</li>
-                                    <li onClick={ }>Asia</li>
-                                    <li onClick={ }>Europe</li>
-                                    <li onClick={ }>Oceania</li>
+                                    <li onClick={() => setRegion("Africa")}>Africa</li>
+                                    <li onClick={() => setRegion("America")}>America</li>
+                                    <li onClick={() => setRegion("Asia")}>Asia</li>
+                                    <li onClick={() => setRegion("Europe")}>Europe</li>
+                                    <li onClick={() => setRegion("Oceania")}>Oceania</li>
+                                    <li onClick={() => setRegion("")}>All</li>
+
                                 </ul>
                             </div>
                         </div>
@@ -41,7 +44,7 @@ function HomePage() {
                             return
                         }
 
-                        if (x.name.common.toLowerCase().includes(input.toLowerCase())) {
+                        if (x.name.common.toLowerCase().includes(input.toLowerCase()) && x.region.toLowerCase().includes(region.toLowerCase())) {
 
                             return (
 
@@ -67,6 +70,7 @@ function HomePage() {
                                             </div>
                                         </div>
                                     </div>
+                                    <p> <Link to={"/details/" + x.name.common} >Details </Link></p>
                                 </div>
 
                             )
@@ -74,7 +78,7 @@ function HomePage() {
                     })}
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

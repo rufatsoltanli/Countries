@@ -1,4 +1,20 @@
-*{
+:root {
+    --background-color: #fafafa;
+    --text-color: #121416d8;
+    --card-bg: white;
+    --card-text: gray;
+}
+
+.darkMode {
+    --background-color: rgb(43, 56, 68);
+    --text-color: white;
+    --card-bg: rgb(32, 44, 54);
+    --card-text: rgb(255, 255, 255);
+
+}
+
+
+* {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
